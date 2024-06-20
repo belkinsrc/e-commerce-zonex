@@ -1,3 +1,3 @@
 import { calc } from '@/app';
 
-calc(5, 4);
+console.log(calc(5, 4));

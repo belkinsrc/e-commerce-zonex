@@ -11,14 +11,12 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@root/*": ["./*"]
+      "@/*": ["src/*"]
     }
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  },
-  "include": ["src/**/*", "config/**/*", "types/global.d.ts"]
+  }
 }
