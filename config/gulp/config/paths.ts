@@ -1,7 +1,7 @@
 const srcFolder = './src';
 const buildFolder = './build';
 
-const paths = {
+export default {
   base: {
     build: buildFolder,
     src: srcFolder,
@@ -17,7 +17,7 @@ const paths = {
   src: {
     html: `${srcFolder}/views/*.html`,
     styles: `${srcFolder}/styles/*.scss`,
-    scripts: `${srcFolder}/scripts/*.js`,
+    scripts: `${srcFolder}/*.js`,
     images: `${srcFolder}/**/*.{jpg,jpeg,png}`,
     svg: `${srcFolder}/**/*.svg`,
     fonts: `${srcFolder}/**/*.{woff,woff2,ttf,otf,eot}`,

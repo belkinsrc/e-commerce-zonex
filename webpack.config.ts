@@ -9,7 +9,7 @@ export default (): Configuration => {
     module: {
       rules: [
         {
-          test: /\.ts?$/,
+          test: /\.tsx?$/,
           use: 'ts-loader',
           exclude: /node_modules/,
         },
@@ -21,9 +21,10 @@ export default (): Configuration => {
       clean: true,
     },
     resolve: {
-      extensions: ['.ts', '.js', '.json'],
+      extensions: ['.tsx', '.ts', '.js', '.json'],
       alias: {
         '@': path.resolve(__dirname, 'src'),
+        '@root': path.resolve(__dirname),
       },
     },
     plugins: [
