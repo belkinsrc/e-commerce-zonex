@@ -4,9 +4,10 @@ import { buildPlugins } from './buildPlugins';
 import { buildResolvers } from './buildResolvers';
 import { buildLoaders } from './buildLoaders';
 import { buildDevServer } from './buildDevServer';
+import { buildOptimization } from './buildOptimization';
 
 const buildWebpack = (options: BuildOptions): Configuration => {
-  const { mode, port, paths } = options;
+  const { mode, paths } = options;
 
   return {
     mode: mode ?? 'development',
@@ -16,6 +17,7 @@ const buildWebpack = (options: BuildOptions): Configuration => {
     module: {
       rules: buildLoaders(options),
     },
+    optimization: buildOptimization(options),
     output: {
       filename: '[name].bundle.js',
       path: paths.output,

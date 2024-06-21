@@ -4,6 +4,7 @@ import { BuildOptions } from 'config/types';
 
 const buildLoaders = (options: BuildOptions): ModuleOptions['rules'] => {
   const { mode } = options;
+  
   const ts = {
     test: /\.tsx?$/,
     use: 'ts-loader',
