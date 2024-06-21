@@ -1,7 +1,9 @@
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { ModuleOptions } from 'webpack';
 import { BuildOptions } from 'config/types';
 
 const buildLoaders = (options: BuildOptions): ModuleOptions['rules'] => {
+  const { mode } = options;
   const ts = {
     test: /\.tsx?$/,
     use: 'ts-loader',
@@ -10,7 +12,11 @@ const buildLoaders = (options: BuildOptions): ModuleOptions['rules'] => {
 
   const styles = {
     test: /\.s[ac]ss$/i,
-    use: ['style-loader', 'css-loader', 'sass-loader'],
+    use: [
+      mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+      'css-loader',
+      'sass-loader',
+    ],
   };
 
   const images = {
