@@ -9,8 +9,8 @@ const buildLoaders = (options: BuildOptions): ModuleOptions['rules'] => {
   };
 
   const styles = {
-    test: /\.css$/i,
-    use: ['style-loader', 'css-loader'],
+    test: /\.s[ac]ss$/i,
+    use: ['style-loader', 'css-loader', 'sass-loader'],
   };
 
   const images = {
@@ -18,7 +18,12 @@ const buildLoaders = (options: BuildOptions): ModuleOptions['rules'] => {
     type: 'asset/resource',
   };
 
-  return [ts, styles, images];
+  const fonts = {
+    test: /\.(woff|woff2|eot|ttf|otf)$/i,
+    type: 'asset/resource',
+  };
+
+  return [ts, styles, images, fonts];
 };
 
 export { buildLoaders };
