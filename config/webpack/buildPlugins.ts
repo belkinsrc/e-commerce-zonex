@@ -1,7 +1,7 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { Configuration } from 'webpack';
+import { Configuration, ProgressPlugin } from 'webpack';
 import { BuildOptions } from 'config/types';
 
 const buildPlugins = (options: BuildOptions): Configuration['plugins'] => {
@@ -13,9 +13,14 @@ const buildPlugins = (options: BuildOptions): Configuration['plugins'] => {
     }),
   ];
 
+  if (mode === 'development') {
+    plugins.push(new ProgressPlugin());
+  }
+
   if (mode === 'production') {
     plugins.push(new MiniCssExtractPlugin());
   }
+
   return plugins;
 };
 
