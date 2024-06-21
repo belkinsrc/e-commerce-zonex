@@ -13,7 +13,12 @@ const buildLoaders = (options: BuildOptions): ModuleOptions['rules'] => {
     use: ['style-loader', 'css-loader'],
   };
 
-  return [ts, styles];
+  const images = {
+    test: /\.(png|svg|jpg|jpeg|gif)$/i,
+    type: 'asset/resource',
+  };
+
+  return [ts, styles, images];
 };
 
 export { buildLoaders };
