@@ -1,7 +1,12 @@
-import './style.scss';
-import image from './image.png';
+import { Person } from '@/entities/person';
+import * as styles from './styles.module.scss';
 
-export function calc(a: number, b: number) {
-  console.log(image);
-  return a + b;
-}
+const App = () => {
+  return `
+    <div class="${styles.app}">
+      <div class="${styles.appText}"></div>
+      ${Person()}
+    </div>`;
+};
+
+export { App };

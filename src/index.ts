@@ -1,4 +1,6 @@
-import { calc } from '@/app';
-import './entities/person';
+import { App } from './app';
 
-console.log(calc(5, 4));
+const app = App();
+// console.log(app);
+
+document.getElementById('root').innerHTML = app;
